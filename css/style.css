@@ -1,0 +1,1903 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+:root {
+  /*COLORS*/
+  --white: #fff;
+  --black: #070a10;
+  --light-black: rgba(0, 0, 0, 0.05);
+  --red: #e63946;
+  --purple: #800080;
+  --grey: #222121;
+  --blue: #38bdf8;
+  --light-purple: #b37cec;
+  --light-grey: #f3f4f6;
+  --pink: #f472b6;
+  --light-red: #f87171;
+
+  /*FONT SIZES*/
+  --fs-50: 0.5rem;
+  --fs-75: 0.75rem;
+  --fs-90: 0.93rem;
+  --fs-100: 1rem;
+  --fs-125: 1.25rem;
+  --fs-150: 1.5rem;
+  --fs-200: 2rem;
+  --fs-225: 2.25rem;
+  --fs-250: 2.5rem;
+  --fs-300: 3rem;
+  --fs-325: 3.25rem;
+  --fs-350: 3.5rem;
+  --fs-375: 3.75rem;
+  --fs-400: 4rem;
+  --fs-500: 5rem;
+  --fs-600: 6rem;
+
+  /*FONT WEIGHTS*/
+  --fw-200: 200;
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+}
+
+/*
+-----------
+RESET
+------------
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+}
+
+p {
+  max-width: 45ch;
+  line-height: 1.6;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/*------UTILITY CLASSES-----*/
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.italic {
+  font-style: italic;
+  font-weight: var(--fw-600);
+}
+
+/*BODY*/
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  font-size: var(--fs-100);
+  height: 100vh;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body.hide-scroll {
+  overflow: hidden;
+}
+
+/*
+------------
+MOBILE VIEW
+------------
+*/
+.icons_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  z-index: 1001;
+}
+
+.hamburger_icon,
+.close_icon {
+  filter: invert(1);
+  width: 2rem;
+  height: 2rem;
+}
+
+.social-media-links {
+  display: none;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: var(--black);
+  padding: 1rem;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.logo_container .logo {
+  position: relative;
+  z-index: 1;
+  width: 8rem;
+  height: auto;
+}
+
+.nav_links {
+  display: none;
+}
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--black);
+  padding: 2.5rem;
+  margin-top: 2rem;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.mobile-nav.active {
+  display: block;
+}
+
+.mobile-nav .mobile-links {
+  padding-bottom: 6px;
+}
+
+.mobile-nav .mobile-links .nav_item {
+  list-style: none;
+  margin-block: 1px;
+  font-size: var(--fs-125);
+  font-weight: var(--fw-700);
+}
+
+.mobile-nav .mobile-links .nav_item .nav_link {
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--white);
+}
+
+.mobile-nav .mobile-links .nav_item .nav_link:hover {
+  color: var(--purple);
+}
+
+.mobile-nav .mobile-links .nav_item .nav_link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  width: 0px;
+  height: 2px;
+  background: linear-gradient(to right, #059fc9, #1cb8aa);
+  transition: all 0.3s ease;
+}
+
+.mobile-nav .mobile-links .nav_item .nav_link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light-black);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav_overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/*HERO SECTION*/
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--black);
+}
+
+.hero video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: var(--fs-300);
+  font-weight: var(--fw-600);
+  color: var(--white);
+}
+
+.hero-content p {
+  font-size: var(--fs-150);
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.ctabuttons {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.btn {
+  /*padding: 0.5rem;*/
+  cursor: pointer;
+}
+
+.btn-primary,
+.btn-secondary {
+  border-radius: 0.75rem;
+  color: var(--white);
+  font-size: var(--fs-125);
+  font-weight: var(--fs-300);
+  padding: 1rem 2rem;
+}
+
+.btn-primary {
+  background-color: var(--grey);
+  border: none;
+}
+
+.btn-secondary {
+  border: 1px solid var(--white);
+  background: none;
+}
+
+.gradient-btn {
+  background-color: var(--grey);
+  transition: background-image 0.5s ease-in-out;
+}
+
+.gradient-btn:hover {
+  background-image: linear-gradient(to right, #059fc9, #1cb8aa);
+}
+
+.btn-secondary:hover {
+  background-image: linear-gradient(to right, #111111, #333131);
+}
+
+/*ABOUT US SECTION*/
+.aboutus {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+
+.header-aboutus {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-aboutus .red-divider {
+  display: block;
+  width: 150px;
+  height: 4px;
+  background: var(--red);
+  border-radius: 0.5rem;
+  margin: 0 auto;
+}
+/*About us content*/
+.aboutus-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.aboutus-content .aboutus-text {
+  text-align: left;
+}
+
+.lead-pastor-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lead-pastor-section img {
+  width: 12.5rem;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.aboutus-content .aboutus-text p {
+  font-size: var(--fs-100);
+  font-weight: var(--fw-300);
+  color: var(--grey);
+  line-height: 1.6;
+}
+.pastor-info h3 {
+  font-size: var(--fs-100);
+  font-weight: var(--fw-600);
+  margin-bottom: 0.5rem;
+}
+
+/*Location button*/
+.icon-container {
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: invert(1);
+}
+
+.church-location .location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 1rem 0.5rem;
+  background: var(--light-grey);
+  text-decoration: none;
+  color: var(--black);
+  border-radius: 0.75rem;
+}
+
+.location:hover {
+  transform: translateY(-3px) scale(1.04);
+  background-color: var(--light-grey);
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*Pages with background images*/
+.es-simone-channel,
+.salvation,
+.events,
+.dag-sermons,
+.fl-music-section,
+.hjc-section,
+.location-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 1rem;
+}
+
+/*Founder*/
+.founder-section {
+  position: relative;
+  background-color: var(--black);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.founder-section .founder-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 1.5rem;
+  justify-content: space-around;
+  padding: 2rem;
+  background-image: url("../images/founder.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.founder-text {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.founder-image img {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+/*ES Simone-Pierre YouTubeChannel*/
+.es-simone-channel {
+  position: relative;
+  background-color: var(--black);
+  /*display: flex;
+  justify-content: flex-start;*/
+  background-image: url("../images/video-thumbnail.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.es-simone-channel .channel-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+.es-simone-channel .channel-content .channel-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  color: var(--white);
+}
+
+.es-simone-channel .channel-content .channel-text .channel-description {
+  margin-top: 5px;
+}
+
+.video-card {
+  width: 400px;
+  height: 300px;
+  text-decoration: none;
+  overflow: hidden;
+  display: block;
+}
+
+.video-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 1.5rem;
+}
+
+.play-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  margin: auto;
+  width: 80px;
+  height: 80px;
+  background: #ff0000;
+  border-radius: 50%;
+  z-index: 2;
+  transition: transform 0.25s ease;
+}
+
+.video-card:hover .play-btn {
+  transform: scale(1.1);
+}
+
+.play-btn img {
+  filter: invert(1);
+}
+
+.founder-content .founder-text,
+.dag-sermons .sermon-content .sermon-text,
+.dag-sermons .sermon-content .sermon-app-icon,
+.location-content .location-text,
+.fl-music-section .fl-music-content .fl-music-text,
+.fl-music-section .fl-music-content .fl-image,
+.es-simone-channel .channel-content .channel-text,
+.es-simone-channel .channel-content .btn,
+.hjc-section .hjc-content,
+.joinus-header-section .joinus-header-content {
+  position: relative;
+  z-index: 2;
+  margin-top: 1.5rem;
+}
+
+.dag-btn,
+.connect-btn {
+  width: 150px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1rem;
+  border: 2px solid var(--white);
+  margin-top: 1rem;
+  gap: 0.5rem; /* Add space between icon and text */
+  padding: 0 1rem; /* Add horizontal padding */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Style the icon container */
+.dag-btn .icon-network,
+.connect-btn .icon-network {
+  width: 24px; /* Fixed width for icon */
+  height: 24px; /* Fixed height for icon */
+  flex-shrink: 0; /* Prevent icon from shrinking */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style the image inside */
+.dag-btn .icon-network img,
+.connect-btn .icon-network img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Show entire icon without cropping */
+  display: block;
+}
+
+.dag-btn .icon-network img {
+  filter: invert(1);
+}
+
+/* Style the text */
+.dag-btn p,
+.connect-btn p {
+  margin: 0;
+  line-height: 1.2;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ... if text is too long */
+}
+
+.dag-btn:hover,
+.connect-btn:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(to right, #111111, #333131);
+}
+
+.connect-btn {
+  background: var(--light-black);
+  padding: 0.5rem 1rem;
+}
+
+.connect-btn:hover {
+  background: var(--black);
+}
+
+.salvation {
+  background-image: url("../images/hjc.jpg");
+}
+
+.events {
+  background-color: var(--black);
+}
+
+.connect-page {
+  position: relative;
+  flex-direction: column;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-connect {
+  list-style: none;
+  z-index: 1;
+  gap: 1rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.platform-connect .logo {
+  position: relative;
+  width: 100px;
+  height: 90px;
+}
+
+/*Programs*/
+.weekly-program {
+  position: relative;
+  background-color: var(--black);
+}
+
+.weekly-program .program-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  color: var(--white);
+  padding: 1rem 2rem;
+}
+
+.weekly-program .program-content .programs {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.program {
+  max-width: 30rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--white);
+  padding: 1rem;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  /* Add these to ensure equal height */
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 400px; /* Fixed minimum height for consistency */
+}
+
+.program .hour {
+  color: var(--light-purple);
+  font-weight: var(--fw-500);
+}
+
+.program .program-image {
+  width: 100%;
+  height: 200px; /* Fixed height for all images */
+  border-radius: 0.5rem;
+  overflow: hidden; /* Ensures image stays within bounds */
+  margin-bottom: 1rem; /* Add some space after image */
+  flex-shrink: 0; /* Prevents image from shrinking */
+}
+
+.program .program-image img {
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease; /* Optional: smooth hover effect */
+}
+
+.program:hover {
+  transform: translateY(-3px) scale(1.02);
+  background-image: linear-gradient(to right, #432c5a, #9e4ae7);
+  box-shadow: 0 4px 8px rgba(54, 26, 107, 0.2);
+}
+
+.program h4,
+.program p {
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+/* Optional: Push hour to bottom for consistency */
+.program .hour {
+  margin-top: auto; /* This pushes the hour to the bottom */
+  padding-top: 0.5rem;
+}
+
+.program:hover .program-image img {
+  transform: scale(1.05);
+}
+
+.salvation .salvation-content .salvation-header,
+.events .events-content .events-header,
+.connect-page .connect-page-content .connect-page-header,
+.online-connection-content .online-connection-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  z-index: 2;
+}
+
+.divider-common {
+  display: block;
+  width: 150px;
+  height: 5px;
+  border-radius: 0.5rem;
+  background: #7c5cff;
+  margin: 20px auto;
+}
+
+.salvation-text,
+.beginning {
+  position: relative;
+  color: var(--light-grey);
+}
+
+.salvation-text .text {
+  margin: 1rem;
+  text-align: left;
+}
+
+/*Typography*/
+.header-aboutus h2 {
+  font-size: var(--fs-250);
+  font-weight: var(--fw-700);
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+
+.header-aboutus p {
+  font-size: var(--fs-125);
+  font-weight: var(--fw-600);
+  color: var(--grey);
+  margin-bottom: 1rem;
+}
+.weekly-program .program-content .programs .program-item h3 {
+  font-size: var(--fs-200);
+  font-weight: var(--fw-600);
+  margin-bottom: 1rem;
+}
+
+.program h4 {
+  font-size: var(--fs-125);
+  font-weight: var(--fw-600);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.giving-text h2,
+.hjc-text h2,
+.sermon-text h2,
+.channel-text h2,
+.founder-content .founder-text h2 {
+  font-size: var(--fs-200);
+  font-weight: var(--fw-600);
+  margin-bottom: 1rem;
+}
+
+.salvation .salvation-content .salvation-header h2,
+.location-page .location-content .location-text h2,
+.events .events-content .events-header h2,
+.connect-page .connect-page-content .connect-page-header h2,
+.online-connection-content .online-connection-header h2,
+.location-page .location-content .location-text h2 {
+  font-size: var(--fs-225);
+  font-weight: var(--fw-600);
+}
+
+.es-simone-channel .channel-content .channel-text .channel-description p,
+.founder-content .founder-text p,
+.salvation .salvation-content .salvation-header p,
+.location-page .location-content .location-text p,
+.connect-page .connect-page-content .connect-page-header p,
+.online-connection-content .online-connection-header p,
+.location-page .location-content .location-text p {
+  font-size: var(--fs-100);
+  font-weight: var(--fw-300);
+}
+
+.join-form-section .join-form-header-content .join-form-header-text h2,
+.joinus-header-text h2,
+.singing-stars-content .singing-stars-text h3,
+.film-stars-content .film-stars-text h3,
+.dancing-stars-content .dancing-stars-text h3 {
+  font-size: var(--fs-225);
+  font-weight: var(--fw-500);
+}
+
+.singing-stars-content .singing-stars-text h4,
+.film-stars-content .film-stars-text h4,
+.dancing-stars-content .form-section h3,
+.dancing-stars-content .dancing-stars-text h4 {
+  font-size: var(--fs-125);
+  font-weight: var(--fw-400);
+}
+
+.events .events-content .events-header p,
+.copyright,
+.services-list .service p,
+.connect-content p,
+.footer-header p,
+.dancing-stars-content .form-section p {
+  font-size: var(--fs-100);
+  font-weight: var(--fw-200);
+}
+
+.salvation-text .text p {
+  font-size: var(--fs-100);
+}
+
+.giving-content .giving-text h2 {
+  font-size: var(--fs-200);
+  font-weight: var(--fw-600);
+  margin-bottom: 1rem;
+}
+
+.footer-header h2 {
+  font-size: var(--fs-150);
+  font-weight: var(--fw-500);
+  color: var(--blue);
+}
+
+.link-group h2 {
+  color: var(--purple);
+  font-size: var(--fs-150);
+}
+
+.service-times h2 {
+  color: var(--pink);
+  font-size: var(--fs-150);
+}
+
+.copyright {
+  margin-top: 1rem;
+}
+.copyright,
+.services-list .service p,
+.connect-content p {
+  margin-bottom: 1rem;
+}
+
+.connect-content h3 {
+  color: var(--light-red);
+  font-weight: var(--fw-500);
+}
+
+.services-times h2 {
+  color: var(--pink);
+}
+
+.details p,
+.hours p {
+  color: #caccd1;
+  font-size: var(--fs-100);
+  font-weight: var(--fw-300);
+}
+
+.beginning .beginning-header p {
+  font-size: var(--fs-100);
+  font-weight: var(--fw-200);
+}
+/*End of typography*/
+
+.beginning .prayer {
+  max-width: 25rem;
+  border-radius: 2rem;
+  background-image: linear-gradient(to right, #242038, #2f3452);
+  padding: 1rem 2rem;
+  margin: 2rem 2rem;
+  text-align: left;
+}
+
+.beginning .beginning-header {
+  margin-top: 2rem;
+}
+
+.beginning .prayer p {
+  margin-bottom: 1rem;
+}
+
+.salvation-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 25rem;
+  width: 100%;
+  gap: 1rem;
+  color: var(--white);
+  border-radius: 1rem;
+  border: 1px solid var(--purple);
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(90, 80, 180, 0.35), transparent 60%),
+    radial-gradient(circle at top, #141a3a, #05060f 80%);
+  background-size:
+    100px 100px,
+    100% 100%,
+    100% 100%;
+  padding: 2rem 1rem;
+  margin: 2rem;
+  text-align: left;
+}
+
+.salvation-form select,
+.salvation-form input {
+  border-radius: 1rem;
+  padding: 1rem;
+  background: var(--black);
+}
+
+.salvation-form select {
+  color: var(--white);
+}
+
+.salvation-form input {
+  padding: 1rem 2rem;
+  border: none;
+  transition: border-color 0.3s ease;
+}
+
+.salvation-form input:focus {
+  outline: none;
+  border-color: var(--purple);
+}
+
+.salvation-form .prayer-btn {
+  border-radius: 1rem;
+  border: none;
+  color: var(--white);
+  font-weight: var(--fw-400);
+  background-image: linear-gradient(to right, #9312e9, #1c53b8);
+  padding: 1rem;
+}
+
+.salvation-form .prayer-btn:hover {
+  transform: translateY(-2px);
+  border: 1px solid var(--purple);
+}
+
+.location-page {
+  background-image: url("../images/choir.jpg");
+  height: 65vh;
+}
+
+/*LOCATION*/
+.location-main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  gap: 2rem;
+}
+
+
+.location-page .location-content .location-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.location-main .map-embed {
+  border-radius: 1rem;
+  border: 2px solid var(--white);
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.location-main .map-embed,
+.location-main .location-details {
+  width: 25rem;
+  height: 25rem;
+}
+
+.location-main .map-embed iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.services-hours {
+  width: 25rem;
+  height: 15rem;
+}
+
+.location-details,
+.services-hours {
+  position: relative;
+  border-radius: 1rem;
+  padding: 1rem 0.5rem;
+  color: var(--white);
+  background: linear-gradient(135deg, #1e2232 0%, #222338 50%, #1f2233 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.location-details .details,
+.services-hours .hours {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.direct-btn {
+  background: linear-gradient(135deg, #8c35ea 0%, #6148ea 50%, #2d60eb 100%);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  border: none;
+  color: var(--white);
+}
+
+.direct-btn:hover {
+  transform: scale(1.05);
+  font-size: var(--fs-125);
+}
+
+/*Dag Sermons Section and fl-music section*/
+.dag-sermons {
+  background-image: url("../images/dag_img_ind.jpg");
+}
+
+.hjc-section .hjc-content,
+.dag-sermons .sermon-content,
+.fl-music-section .fl-music-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+  color: var(--white);
+  text-align: center;
+}
+
+.dag-sermons .sermon-content .sermon-text .download-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+
+/*First Love Music Section*/
+.fl-music-section {
+  background-image: url("../images/fl_music.jpg");
+}
+
+.dag-sermons .sermon-content .sermon-text,
+.fl-music-section .fl-music-content .fl-music-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+
+.fl-music-section .fl-music-content .fl-music-text .music-platforms {
+  flex-direction: column;
+  align-items: center;
+}
+
+.fl-music-section .fl-music-content .fl-music-text .music-platforms .btn {
+  width: 200px;
+}
+
+#fl-music-pic {
+  z-index: 2;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+#fl-music-pic:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+#fl-music-logo {
+  width: 80px;
+  height: 80px;
+}
+
+/*Divider*/
+.location-page .location-content .location-text .divider,
+.dag-sermons .sermon-content .sermon-text .divider,
+.hjc-section .hjc-content .divider,
+.joinus-header-section .joinus-header-content .joinus-header-text .divider,
+.salvation-content .salvation-header .divider,
+.giving-content .giving-text .divider,
+.hero-content .divider,
+.es-simone-channel .channel-content .channel-text .divider,
+.events .events-content .events-header .divider,
+.fl-music-section .fl-music-content .fl-music-text .divider {
+  display: block;
+  width: 150px;
+  height: 5px;
+  border-radius: 0.5rem;
+  background: #7c5cff;
+  margin: 20px 0;
+}
+
+/*Join us content*/
+.joinus-header-section {
+  position: relative;
+  background-image: url("../images/praise.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+.joinus-header-section .joinus-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: var(--white);
+}
+
+.joinus-header-section .joinus-header-content .joinus-header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--light-grey);
+}
+
+/*Ministries*/
+.ministries-section,
+.join-form-section,
+.join-form-section .join-form-header-content .join-form-header-text {
+  position: relative;
+  background-color: var(--black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 2rem;
+}
+
+.join-form-section .join-form-header-content .join-form-header-text {
+  color: var(--white);
+  text-align: center;
+}
+
+.ministries-section .film-stars,
+.ministries-section .singing-stars,
+.ministries-section .dancingstars {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  border: 0.85px solid rgba(5, 1, 1, 0.25);
+  overflow: hidden;
+  border: none;
+  max-width: 30rem;
+}
+
+.ministries-section .film-stars {
+  background-image: url("../images/film-stars.jpg");
+}
+
+.ministries-section .singing-stars {
+  background-image: url("../images/choir.jpg");
+}
+
+.ministries-section .dancingstars {
+  background-image: url("../images/dancing-good.jpg");
+}
+
+.singing-stars .singing-stars-content,
+.film-stars .film-stars-content,
+.dancingstars .dancing-stars-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+  z-index: 2;
+  color: white;
+  margin: 1rem;
+  gap: 2rem;
+}
+
+.singing-stars-content .singing-stars-text,
+.film-stars-content .film-stars-text,
+.dancing-stars-content .dancing-stars-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 2rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.dancing-stars-content .dancing-stars-images,
+.film-stars-content .film-stars-images,
+.singing-stars-content .singing-stars-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center; /* Center images horizontally */
+  align-items: center; /* Center images vertically */
+  width: 100%;
+  gap: 1rem;
+}
+
+.dancing-stars-content .dancing-stars-text img,
+.film-stars-content .film-stars-text img,
+.singing-stars-content .singing-stars-text img {
+  width: 60px;
+  border-radius: 50%;
+}
+
+.dancing-stars-content .dancing-stars-text img {
+  background-color: var(--blue);
+}
+
+.dancing-stars-content .dancing-stars-images img,
+.film-stars-content .film-stars-images img,
+.singing-stars-content .singing-stars-images img {
+  display: block;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  height: 200px;
+  width: 400px;
+  margin: 20px 0;
+}
+
+.singing-stars-content .singing-stars-images img:hover,
+.film-stars-content .film-stars-images img:hover,
+.dancing-stars-content .dancing-stars-images img:hover {
+  transform: scale(1.05);
+}
+
+/*HJC Section*/
+.hjc-section {
+  background-image: url("../images/dag-hjc-2.jpg");
+  /*height: 100vh;*/
+}
+
+.hjc-section .hjc-content .hjc-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hjc-section .hjc-content .hjc-text .yellow-divider {
+  display: block;
+  width: 200px;
+  height: 5px;
+  border-radius: 0.5rem;
+  margin: 20px 0;
+  background: linear-gradient(to right, #d0ee27, #e2d02e);
+}
+
+.hjc-section .hjc-content .hjc-channel-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Giving Section*/
+.gradient-bg {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(90, 80, 180, 0.35), transparent 60%),
+    radial-gradient(circle at top, #141a3a, #05060f 70%);
+  background-size:
+    40px 40px,
+    100% 100%,
+    100% 100%;
+}
+
+.salvation,
+.giving-section {
+  height: 40vh;
+}
+
+/*Giving Section*/
+.giving-section .giving-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.giving-content .giving-text {
+  position: relative;
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.events .events-content .events-header,
+.beginning .beginning-header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.seperator {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #059fc9, #1cb8aa);
+}
+
+/*Footer Section*/
+footer {
+  position: relative;
+  color: var(--white);
+}
+
+footer .footer-content {
+  position: relative;
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  z-index: 2;
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin: 0.5rem;
+  padding: 0;
+}
+
+.footer-logo-img {
+  width: 100px;
+  height: auto;
+}
+
+footer .footer-content .footer-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  text-align: left;
+}
+
+.tiktok-btn {
+  filter: invert(1);
+  width: 18px;
+  height: 18px;
+}
+
+.social-media {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-media img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.footer-content .link-group,
+.footer-content .service-times,
+.footer-content .connect-footer-section .connect-content,
+.footer-content .link-group .quick-links,
+.footer-content .service-times .services-list,
+.footer-content .connect-footer-section .connect-content .connect-btn-list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  text-align: left;
+}
+
+/*
+.footer-content .service-times .services-list,
+.footer-content .connect-footer-section .connect-content .connect-btn-list {
+  flex-direction: column;
+}
+*/
+
+.quick-links .nav_item {
+  list-style: none;
+}
+
+/*Styling quick links*/
+.quick-links .nav_item .nav_link {
+  position: relative;
+  text-decoration: none;
+  color: var(--light-grey);
+  font-size: var(--fs-100);
+  font-weight: var(--fw-200);
+}
+
+.quick-links .nav_item .nav_link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, var(--pink), var(--purple));
+  transition: all 0.3s ease;
+}
+
+.quick-links .nav_item .nav_link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.connect-btn-list {
+  list-style: none;
+  /*padding: 1rem 2rem;*/
+  /*margin: 1rem 0;
+  gap: 1rem;*/
+}
+
+/*
+------------------
+DESKTOP VIEW
+------------------
+*/
+@media (min-width: 768px) {
+  /*Hidden Icons*/
+  .icons_button {
+    display: none;
+  }
+
+  /*Navbar*/
+  .navbar {
+    align-items: center;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav_links {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  .nav_links .nav_item {
+    list-style: none;
+  }
+
+  .nav_links .nav_item .nav_link {
+    position: relative;
+    text-decoration: none;
+    color: var(--white);
+    font-size: var(--fs-90);
+    font-weight: var(--fw-600);
+    padding-bottom: 6px;
+  }
+
+  .nav_links .nav_item .nav_link:hover {
+    color: var(--purple);
+  }
+
+  .nav_links .nav_item .nav_link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #059fc9, #1cb8aa);
+    transition: all 0.3s ease;
+  }
+
+  .nav_links .nav_item .nav_link:hover::after {
+    width: 100%;
+    left: 0;
+  }
+
+  .social-media-links {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 2rem;
+  }
+
+  .ctabuttons {
+    flex-direction: row;
+  }
+
+  .weekly-program .program-content {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 0 0.5rem;
+    /*margin: 1rem 0;*/
+    justify-items: flex-start;
+    align-content: flex-start;
+  }
+
+  /*Hero content*/
+  .hero-content .divider {
+    width: 300px;
+  }
+
+  .dag-btn,
+  .connect-btn {
+    width: 280px;
+  }
+
+  /*Height= 100vh*/
+
+  /*About us*/
+  .aboutus-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 0 0.5rem;
+    margin: 0.5rem 0;
+  }
+
+  .program {
+    min-height: 450px; /* Slightly larger on desktop */
+  }
+
+  /* Adjust image height for desktop if needed */
+  .program .program-image {
+    height: 250px; /* Slightly larger on desktop */
+  }
+
+  .program .program-image img {
+    width: 400px;
+  }
+
+  /*Founder section*/
+  .founder-section .founder-content {
+    background: none;
+  }
+
+  .founder-image img {
+    display: block;
+    background-image: url("../images/founder.jpg");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: fit-content;
+    transform: scale(2.75);
+  }
+
+  /*Es Simone*/
+  .fl-music-section,
+  .hjc-section,
+  .es-simone-channel {
+    height: 100vh;
+  }
+
+  /*Section with same features*/
+  .founder-section .founder-content,
+  .es-simone-channel .channel-content,
+  .hjc-section .hjc-content,
+  .dag-sermons .sermon-content,
+  .fl-music-section .fl-music-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-left: 2.5rem;
+    align-content: flex-start;
+    justify-items: flex-start;
+    text-align: left;
+  }
+
+  /*Salvation*/
+  .salvation-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-content: start;
+    justify-items: center;
+    text-align: left;
+    padding: 2rem 0;
+  }
+
+  .beginning .prayer {
+    max-width: 60rem;
+    padding: 4.5rem 3rem;
+    width: 60%;
+    height: 35rem;
+    margin: 2rem;
+  }
+
+  .salvation-form {
+    max-width: 60rem;
+    padding: 4.5rem 3rem;
+    width: 60%;
+    height: 35rem;
+    margin: 2rem;
+  }
+
+  .video-card {
+    width: 700px;
+    height: 400px;
+  }
+
+  .fl-music-section .fl-music-content .fl-music-text,
+  .hjc-section .hjc-content .hjc-text,
+  .dag-sermons .sermon-content .sermon-text {
+    text-align: left;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .fl-music-section .fl-music-content .fl-music-text .music-platforms {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .icon-network {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  .weekly-program .program-content .programs {
+    flex-direction: row;
+  }
+
+  .dag-sermons .sermon-content .sermon-app-icon {
+    display: flex; /* ADD THIS */
+    justify-content: center; /* ADD THIS */
+    align-items: center;
+  }
+
+  /*Ministries Section*/
+
+  .ministries-section .film-stars,
+  .ministries-section .singing-stars,
+  .ministries-section .dancingstars {
+    max-width: 70rem;
+    height: 40rem;
+  }
+
+  .film-stars-content .film-stars-images,
+  .singing-stars-content .singing-stars-images,
+  .dancing-stars-content .dancing-stars-images img {
+    height: 250px;
+  }
+
+  .singing-stars .singing-stars-content,
+  .film-stars .film-stars-content,
+  .dancingstars .dancing-stars-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    flex-wrap: wrap;
+    align-content: center;
+    justify-items: center;
+    padding: 1rem;
+  }
+
+  .singing-stars-content .singing-stars-text,
+  .film-stars-content .film-stars-text,
+  .dancing-stars-content .dancing-stars-text {
+    max-width: 40rem;
+    height: 30rem;
+  }
+
+  /*LOCATION*/
+  .location-main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .location-main .map-embed,
+  .location-main .location-details {
+    width: 30rem;
+    height: 25rem;
+  }
+
+  .location-main .services-hours {
+    height: 20rem;
+  }
+
+  /*Typography*/
+  .hero-content h1 {
+    font-size: var(--fs-600);
+    font-weight: var(--fw-700);
+  }
+
+  .hero-content p {
+    font-size: var(--fs-250);
+  }
+
+  .header-aboutus p,
+  .events .events-content .events-header p {
+    font-size: var(--fs-150);
+  }
+
+  .header-aboutus p {
+    font-weight: var(--fw-600);
+    color: var(--grey);
+    margin-bottom: 1rem;
+  }
+
+  .online-connection-content .online-connection-header h2,
+  .connect-page .connect-page-content .connect-page-header h2,
+  .join-form-section .join-form-header-content .join-form-header-text h2,
+  .events .events-content .events-header h2,
+  .location-page .location-content .location-text h2,
+  .beginning .beginning-header h2,
+  .founder-content .founder-text h2,
+  .dag-sermons .sermon-content .sermon-text h2,
+  .es-simone-channel .channel-content .channel-text h2,
+  .hjc-section .hjc-content .hjc-text h2 {
+    font-size: var(--fs-325);
+    font-weight: var(--fw-600);
+  }
+
+  .online-connection-content .online-connection-header p,
+  .connect-page .connect-page-content .connect-page-header p,
+  .join-form-section .join-form-header-content .join-form-header-text p,
+  .salvation-text .text p,
+  .beginning .beginning-header p,
+  .beginning .prayer p,
+  .aboutus-content .aboutus-text p,
+  .founder-content .founder-text p,
+  .channel-content .channel-text p,
+  .dag-sermons .sermon-content .sermon-text p,
+  .fl-music-section .fl-music-content .fl-music-text p,
+  .hjc-section .hjc-content .hjc-text p,
+  .giving-section .giving-content .giving-text p,
+  .salvation .salvation-content .salvation-header p,
+  .location-page .location-content .location-text p,
+  .joinus-header-text p {
+    font-size: var(--fs-125);
+    font-weight: var(--fw-300);
+  }
+
+  .location-page .location-content .location-text p {
+    font-size: var(--fs-225);
+    font-weight: var(--fw-300);
+  }
+
+  .joinus-header-text h2,
+  .header-aboutus h2,
+  .salvation .salvation-content .salvation-header h2,
+  .location-page .location-content .location-text h2,
+  .giving-section .giving-content .giving-text h2 {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-600);
+  }
+
+  /*End of typography*/
+
+  .dag-btn {
+    font-size: var(--fs-125);
+  }
+
+  /*Fl MUSIC*/
+  #fl-music-logo {
+    display: block;
+    width: 20rem;
+    height: 20rem;
+    margin: 5px 0 0 5px;
+  }
+
+  #fl-music-pic {
+    margin: 0 auto; /* ADD THIS */
+  }
+
+  footer .footer-content {
+    grid-template-columns: repeat(4, 1fr); /* 4 equal columns on desktop */
+    gap: 1rem; /* Adjust spacing between columns */
+    margin: 1rem;
+  }
+
+  .footer-header,
+  .link-group,
+  .services-list {
+    min-width: 200px;
+  }
+
+  /*.social-media img {
+    width: 3rem;
+    height: 3rem;
+  }*/
+}
