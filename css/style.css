@@ -1544,19 +1544,13 @@ footer .footer-content .footer-header {
   text-align: left;
 }
 
-/*
-.footer-content .service-times .services-list,
-.footer-content .connect-footer-section .connect-content .connect-btn-list {
-  flex-direction: column;
-}
-*/
 
 .quick-links .nav_item {
   list-style: none;
 }
 
 /*Styling quick links*/
-.quick-links .nav_item .nav_link {
+.quick-links .nav_item .nav_link_quick {
   position: relative;
   text-decoration: none;
   color: var(--light-grey);
@@ -1564,7 +1558,7 @@ footer .footer-content .footer-header {
   font-weight: var(--fw-200);
 }
 
-.quick-links .nav_item .nav_link::after {
+.quick-links .nav_item .nav_link_quick::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -1575,7 +1569,7 @@ footer .footer-content .footer-header {
   transition: all 0.3s ease;
 }
 
-.quick-links .nav_item .nav_link:hover::after {
+.quick-links .nav_item .nav_link_quick:hover::after {
   width: 100%;
   left: 0;
 }
@@ -1605,6 +1599,7 @@ DESKTOP VIEW
   }
 
   .nav_links {
+    position: relative;
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
