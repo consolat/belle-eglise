@@ -8,7 +8,7 @@
   --red: #e63946;
   --purple: #800080;
   --grey: #222121;
-  --grey_2:#777;
+  --grey_2: #777;
   --blue: #38bdf8;
   --green: #3bb75e;
   --light-purple: #b37cec;
@@ -724,7 +724,7 @@ MOBILE VIEW
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: .5rem;
   margin: 1rem;
 }
 
@@ -1156,7 +1156,7 @@ input {
   background: var(--green);
   color: var(--white);
   border: none;
-  border-radius: .75rem;
+  border-radius: 0.75rem;
   font-size: 1rem;
   cursor: pointer;
 }
@@ -1543,7 +1543,6 @@ footer .footer-content .footer-header {
   margin: 0.5rem 0 0 0;
   text-align: left;
 }
-
 
 .quick-links .nav_item {
   list-style: none;
