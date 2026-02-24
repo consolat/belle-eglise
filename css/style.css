@@ -8,7 +8,9 @@
   --red: #e63946;
   --purple: #800080;
   --grey: #222121;
+  --grey_2:#777;
   --blue: #38bdf8;
+  --green: #3bb75e;
   --light-purple: #b37cec;
   --light-grey: #f3f4f6;
   --pink: #f472b6;
@@ -1053,7 +1055,6 @@ MOBILE VIEW
   gap: 2rem;
 }
 
-
 .location-page .location-content .location-text {
   display: flex;
   flex-direction: column;
@@ -1117,6 +1118,57 @@ MOBILE VIEW
 .direct-btn:hover {
   transform: scale(1.05);
   font-size: var(--fs-125);
+}
+
+/*Giving Section*/
+.container {
+  max-width: 400px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container-heading {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container img {
+  max-width: 180px;
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.pay-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  border-radius: .75rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.pay-btn:hover {
+  background: green;
+}
+
+.note {
+  font-size: 0.85rem;
+  color: var(--grey_2);
+  margin-top: 10px;
 }
 
 /*Dag Sermons Section and fl-music section*/
@@ -1714,7 +1766,7 @@ DESKTOP VIEW
     width: 700px;
     height: 400px;
   }
-
+  /*Sections with same features*/
   .fl-music-section .fl-music-content .fl-music-text,
   .hjc-section .hjc-content .hjc-text,
   .dag-sermons .sermon-content .sermon-text {
@@ -1776,6 +1828,15 @@ DESKTOP VIEW
   .dancing-stars-content .dancing-stars-text {
     max-width: 40rem;
     height: 30rem;
+  }
+
+  /*Giving Section*/
+  .container {
+    max-width: 500px;
+  }
+
+  .container img {
+    max-width: 250px;
   }
 
   /*LOCATION*/

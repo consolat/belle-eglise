@@ -3,9 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const iconsBtn = document.querySelector(".icons_button");
     const hamburgerIcon = document.querySelector(".hamburger_icon");
     const closeIcon = document.querySelector(".close_icon");
-
-    //Navlinks
-    /*const navLinks = document.querySelector(".nav_links");*/
+    
     const mobileNav = document.querySelector(".mobile-nav");
     const body = document.body;
     const navItems = document.querySelectorAll('.nav_item');
