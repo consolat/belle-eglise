@@ -1619,7 +1619,7 @@ DESKTOP VIEW
     position: relative;
     text-decoration: none;
     color: var(--white);
-    font-size: var(--fs-90);
+    font-size: var(--fs-75);
     font-weight: var(--fw-600);
     padding-bottom: 6px;
   }
