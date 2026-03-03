@@ -1609,13 +1609,13 @@ DESKTOP VIEW
 
   .nav_links .nav_item {
     list-style: none;
+    font-size: var(--fs-90);
   }
 
   .nav_links .nav_item .nav_link {
     position: relative;
     text-decoration: none;
     color: var(--white);
-    font-size: var(--fs-90);
     font-weight: var(--fw-600);
     /*padding-bottom: 3px;*/
   }
