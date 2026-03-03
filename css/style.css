@@ -1009,6 +1009,7 @@ MOBILE VIEW
   border-radius: 1rem;
   padding: 1rem;
   background: var(--black);
+  color: var(--white);
 }
 
 .salvation-form select {
