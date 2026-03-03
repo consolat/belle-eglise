@@ -1599,7 +1599,7 @@ DESKTOP VIEW
     padding: 0.5rem 1rem;
   }
 
-  .nav_links {
+  .navbar .nav_links {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -1607,24 +1607,24 @@ DESKTOP VIEW
     padding: 0.5rem;
   }
 
-  .nav_links .nav_item {
+ .navbar .nav_links .nav_item {
     list-style: none;
     font-size: var(--fs-90);
+    font-weight: var(--fw-600);
   }
 
-  .nav_links .nav_item .nav_link {
+.navbar  .nav_links .nav_item .nav_link {
     position: relative;
     text-decoration: none;
     color: var(--white);
-    font-weight: var(--fw-600);
     /*padding-bottom: 3px;*/
   }
 
-  .nav_links .nav_item .nav_link:hover {
+  .navbar.nav_links .nav_item .nav_link:hover {
     color: var(--purple);
   }
 
-  .nav_links .nav_item .nav_link::after {
+  .navbar .nav_links .nav_item .nav_link::after {
     content: "";
     position: absolute;
     left: 50%;
@@ -1635,7 +1635,7 @@ DESKTOP VIEW
     transition: all 0.3s ease;
   }
 
-  .nav_links .nav_item .nav_link:hover::after {
+  .navbar .nav_links .nav_item .nav_link:hover::after {
     width: 100%;
     left: 0;
   }
