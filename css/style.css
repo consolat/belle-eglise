@@ -693,7 +693,7 @@ MOBILE VIEW
 .platform-connect {
   list-style: none;
   z-index: 1;
-  gap: 1rem;
+  gap: .5rem;
   align-items: flex-start;
   justify-content: flex-start;
 }
@@ -716,9 +716,9 @@ MOBILE VIEW
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: .5rem;
+  gap: 0.5rem;
   color: var(--white);
-  padding: 1rem .5rem;
+  padding: 1rem 0.5rem;
 }
 
 .weekly-program .program-content .programs {
@@ -726,7 +726,7 @@ MOBILE VIEW
   flex-direction: column;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin: .5rem;
+  margin: 0.5rem;
 }
 
 .program {
@@ -1073,9 +1073,10 @@ MOBILE VIEW
 }
 
 .location-main .map-embed,
-.location-main .location-details {
-  width: 25rem;
-  height: 25rem;
+.location-main .location-details,
+.location-main .services-hours {
+  width: 20rem;
+  height: 20rem;
 }
 
 .location-main .map-embed iframe {
@@ -1083,10 +1084,10 @@ MOBILE VIEW
   height: 100%;
 }
 
-.services-hours {
+/*.services-hours {
   width: 25rem;
   height: 15rem;
-}
+}*/
 
 .location-details,
 .services-hours {
@@ -1596,24 +1597,24 @@ DESKTOP VIEW
   /*Navbar*/
   .navbar {
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
   }
 
   .navbar .nav_links {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     gap: 1.5rem;
     padding: 0.5rem;
-  }
-
- .navbar .nav_links .nav_item {
-    list-style: none;
     font-size: var(--fs-90);
     font-weight: var(--fw-600);
   }
 
-.navbar  .nav_links .nav_item .nav_link {
+  .navbar .nav_links .nav_item {
+    list-style: none;
+  }
+
+  .navbar .nav_links .nav_item .nav_link {
     position: relative;
     text-decoration: none;
     color: var(--white);
@@ -1654,8 +1655,6 @@ DESKTOP VIEW
     display: grid;
     grid-template-rows: repeat(2, 1fr);
     gap: 1rem;
-    /*padding: 0 0.5rem;*/
-    /*margin: 1rem 0;*/
     justify-items: flex-start;
     align-content: flex-start;
   }
@@ -1851,8 +1850,6 @@ DESKTOP VIEW
     height: 25rem;
   }
 
-
-
   /*Typography*/
   .hero-content h1 {
     font-size: var(--fs-600);
@@ -1951,9 +1948,4 @@ DESKTOP VIEW
   .services-list {
     min-width: 200px;
   }
-
-  /*.social-media img {
-    width: 3rem;
-    height: 3rem;
-  }*/
 }
