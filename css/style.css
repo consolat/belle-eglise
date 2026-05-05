@@ -691,9 +691,11 @@ MOBILE VIEW
 }
 
 .platform-connect {
+  position: relative;
   list-style: none;
   z-index: 1;
-  gap: .5rem;
+  gap: 0.5rem;
+  display: flex;
   align-items: flex-start;
   justify-content: flex-start;
 }
